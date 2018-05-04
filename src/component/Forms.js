@@ -55,7 +55,7 @@ export class AddForm extends React.Component {
 export class UpdateForm extends React.Component {
   static propsToStates(props) {
     var state = utils.deep(props.timer);
-    state["prevTimer"] = props.timer;
+    state["prevTimer"] = utils.deep(props.timer);
     return state;
   }
   constructor(props) {
@@ -64,7 +64,7 @@ export class UpdateForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.timer !== prevState.prevTimer) {
+    if (JSON.stringify(nextProps.timer) !== JSON.stringify(prevState.prevTimer)) {
       return UpdateForm.propsToStates(nextProps);
     }
     return null;
