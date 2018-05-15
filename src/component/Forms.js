@@ -24,7 +24,7 @@ export class AddForm extends React.Component {
   }
 
   add() {
-    if (!this.props.addTimer(this.state)) {
+    if (!this.props.addTimer(utils.deep(this.state))) {
       return;
     }
     this.setState({
@@ -39,12 +39,11 @@ export class AddForm extends React.Component {
       <div className="mt-3 mb-4">
         <form className="form-inline" name="add_form">
           <div className="form-group">
-            <label>New</label>
-            <input type="text" name="label" className="form-control mx-2" placeholder="Label" onChange={this.handleInputChange} />
-            <input type="text" name="url" className="form-control mx-2" placeholder="URL" onChange={this.handleInputChange} />
+            <input type="text" name="label" style={{width:180}} className="form-control mx-2" placeholder="Label" onChange={this.handleInputChange} />
+            <input type="text" name="url" style={{width:180}} className="form-control mx-2" placeholder="URL" onChange={this.handleInputChange} />
             <div className="input-group mx-2">
-              <input type="date" name="date" style={{width:180}} className="form-control" value={this.state.date} onChange={this.handleInputChange} />
-              <input type="time" name="time" style={{width:120}} className="form-control" value={this.state.time} onChange={this.handleInputChange} />
+              <input type="date" name="date" style={{width:155}} className="form-control" value={this.state.date} onChange={this.handleInputChange} />
+              <input type="time" name="time" style={{width:90}} className="form-control" value={this.state.time} onChange={this.handleInputChange} />
             </div>
             <button type="button" className="btn btn-primary mx-2" onClick={() => this.add()}>Add</button>
           </div>

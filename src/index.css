@@ -15,6 +15,29 @@ span.success { color: #5cb85c;}
   margin-top: 24px;
 }
 
+.form-inline input.mx-2, .form-inline .input-group {
+  margin-left: 0 !important;
+  margin-right: 2px !important;
+}
+.form-inline input {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+@media (max-width: 767px) {
+  .form-inline .form-control {
+    display: inline-table;
+    width: auto;
+    vertical-align: middle;
+  }
+}
+@media (max-width: 767px) {
+  .form-inline .form-group {
+    display: inline-table;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
 .form-compact .form-group { margin-bottom: 0;}
 .form-compact .form-group input { padding: 0.15rem 0.5rem;}
 .form-compact .form-group label {
