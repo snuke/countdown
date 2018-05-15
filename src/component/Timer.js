@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import 'moment-duration-format';
 import utils from '../utils';
 import Card from './Card';
 

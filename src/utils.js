@@ -34,13 +34,13 @@ utils.validateTimers = function(timers) {
   for (var i = 0; i < timers.length; i++) {
     var timer = timers[i];
     if (typeof(timer) !== 'object') return false;
-    if (Object.keys(timer).length !== 3) return false;
     if (!('label' in timer)) return false;
     if (!('date' in timer)) return false;
     if (!('time' in timer)) return false;
     if (typeof(timer.label) !== 'string') return false;
     if (typeof(timer.date) !== 'string') return false;
     if (typeof(timer.time) !== 'string') return false;
+    if ('url' in timer && typeof(timer.url) !== 'string') return false;
     if (!utils.getMoment(timer).isValid()) return false;
   }
   return true;

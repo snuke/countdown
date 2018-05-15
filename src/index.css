@@ -15,6 +15,13 @@ span.success { color: #5cb85c;}
   margin-top: 24px;
 }
 
+.form-compact .form-group { margin-bottom: 0;}
+.form-compact .form-group input { padding: 0.15rem 0.5rem;}
+.form-compact .form-group label {
+  padding-top: calc(0.15rem + 1px);
+  padding-bottom: calc(0.15rem + 1px);
+}
+
 
 /* flipper */
 .flip-container {

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import utils from '../utils';
 
 export class AddForm extends React.Component {
@@ -6,8 +7,9 @@ export class AddForm extends React.Component {
     super(props);
     this.state = {
       label: '',
-      date: '',
-      time: '',
+      url: '',
+      date: moment().format('YYYY-MM-DD'),
+      time: '00:00',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,8 +29,7 @@ export class AddForm extends React.Component {
     }
     this.setState({
       label: '',
-      date: '',
-      time: '',
+      url: '',
     });
     document.add_form.reset();
   }
@@ -40,9 +41,10 @@ export class AddForm extends React.Component {
           <div className="form-group">
             <label>New</label>
             <input type="text" name="label" className="form-control mx-2" placeholder="Label" onChange={this.handleInputChange} />
+            <input type="text" name="url" className="form-control mx-2" placeholder="URL" onChange={this.handleInputChange} />
             <div className="input-group mx-2">
-              <input type="date" name="date" style={{width:180}} className="form-control" onChange={this.handleInputChange} />
-              <input type="time" name="time" style={{width:120}} className="form-control" onChange={this.handleInputChange} />
+              <input type="date" name="date" style={{width:180}} className="form-control" value={this.state.date} onChange={this.handleInputChange} />
+              <input type="time" name="time" style={{width:120}} className="form-control" value={this.state.time} onChange={this.handleInputChange} />
             </div>
             <button type="button" className="btn btn-primary mx-2" onClick={() => this.add()}>Add</button>
           </div>
@@ -81,6 +83,7 @@ export class UpdateForm extends React.Component {
   getTimer() {
     return {
       "label": this.state.label,
+      "url": this.state.url,
       "date": this.state.date,
       "time": this.state.time,
     };
@@ -104,11 +107,17 @@ export class UpdateForm extends React.Component {
     return (
       <div className="row">
         <div className="col-9">
-          <form>
+          <form className="form-compact">
             <div className="form-group row">
               <label className="col-3 col-form-label col-form-label-sm">Label</label>
               <div className="col-9">
                 <input type="text" name="label" className="form-control form-control-sm" value={this.state.label} placeholder="Label" onChange={this.handleInputChange} />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-3 col-form-label col-form-label-sm">URL</label>
+              <div className="col-9">
+                <input type="text" name="url" className="form-control form-control-sm" value={this.state.url} placeholder="URL" onChange={this.handleInputChange} />
               </div>
             </div>
             <div className="form-group row">

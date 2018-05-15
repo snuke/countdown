@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import 'moment-duration-format';
 import utils from '../utils';
 import {UpdateForm} from './Forms';
 
@@ -24,6 +23,8 @@ class Card extends React.Component {
 
   render() {
     var label = this.props.timer.label;
+    var url = this.props.timer.url;
+    var labelDom = url ? (<a href={url} target="_blank">{label}</a>) : label;
     var time = utils.getMoment(this.props.timer);
     var now = this.props.now;
     var rest = time - now;
@@ -44,7 +45,7 @@ class Card extends React.Component {
               <div className="card border-secondary mb-2">
                 <div className="card-body">
                   <h5 className="card-title">
-                    {label}
+                    {labelDom}
                     <div className="float-right">
                       <span className="glyphicon glyphicon-cog pointer"
                         onClick={() => this.flip()}></span>
