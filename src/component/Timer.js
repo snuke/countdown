@@ -81,6 +81,7 @@ class Timer extends React.Component {
         cards.push(card);
       }
     }
+    cardsFinished.reverse();
     return (
       <div>
         <div className="row">
