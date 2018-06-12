@@ -51,7 +51,7 @@ class Card extends React.Component {
                         onClick={() => this.flip()}></span>
                     </div>
                   </h5>
-                  <h6 className="card-subtitle mb-3 text-muted">{time.format('YYYY/MM/DD HH:mm')}</h6>
+                  <h6 className="card-subtitle mb-3 text-muted">{time.format('YYYY/MM/DD(ddd) HH:mm')}</h6>
                   <h1 className={"text-center fixed-width no-break" + (days?" rest-days":"")}>{rest}</h1>
                 </div>
               </div>
