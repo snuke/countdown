@@ -21,6 +21,13 @@ class Card extends React.Component {
     }
   }
 
+  done() {
+    var timer = utils.deep(this.props.timer);
+    timer.date = moment().format('YYYY-MM-DD');
+    timer.time = moment().format('hh:mm');
+    this.props.setTimer(timer);
+  }
+
   render() {
     var label = this.props.timer.label;
     var url = this.props.timer.url;
@@ -47,6 +54,9 @@ class Card extends React.Component {
                   <h5 className="card-title">
                     {labelDom}
                     <div className="float-right">
+                      <span className="glyphicon glyphicon-check success pointer" title="done"
+                        onClick={() => this.done()}></span>
+                      &nbsp;
                       <span className="glyphicon glyphicon-cog pointer"
                         onClick={() => this.flip()}></span>
                     </div>
